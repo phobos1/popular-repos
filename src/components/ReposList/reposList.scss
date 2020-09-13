@@ -1,0 +1,19 @@
+@import "../../styles/main";
+
+.repos-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+
+  @include respond-to(mobile-landscape) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond-to(tablet-landscape) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @include respond-to(laptop-lg) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

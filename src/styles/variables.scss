@@ -1,0 +1,8 @@
+$breakpoints: (
+  'mobile'                    : (min-width: 320px),
+  'mobile-landscape'          : (min-width: 568px),
+  'tablet'                    : (min-width: 768px),
+  'tablet-landscape'          : (min-width: 1024px),
+  'laptop'                    : (min-width: 1280px),
+  'laptop-lg'                 : (min-width: 1440px),
+);
