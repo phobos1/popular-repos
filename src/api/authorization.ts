@@ -3,20 +3,20 @@ const TOKEN_KEY = 'token';
 
 function authRedirect(): void {
   // TODO: redirect_uri to config
-  document.location.href = `https://github.com/login/oauth/authorize?client_id=${process.env.githubClientId}&redirect_uri=http%3A%2F%2Flocalhost%3A3030&login=${process.env.user}`;
+  document.location.href = `https://github.com/login/oauth/authorize?client_id=${process.env.githubClientId}&redirect_uri=http://localhost:3030&login=${process.env.user}`;
 }
 
 function getAuthCode(): string {
-  const storageCode = window.localStorage.getItem(CODE_KEY);
-  if (storageCode) {
-    return storageCode;
-  }
-
   const urlParams = new URLSearchParams(window.location.search);
   const paramsCode = urlParams.get(CODE_KEY);
   if (paramsCode) {
     window.localStorage.setItem(CODE_KEY, paramsCode);
     return paramsCode;
+  }
+
+  const storageCode = window.localStorage.getItem(CODE_KEY);
+  if (storageCode) {
+    return storageCode;
   }
 
   authRedirect();
